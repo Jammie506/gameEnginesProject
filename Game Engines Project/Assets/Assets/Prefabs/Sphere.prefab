@@ -109,3 +109,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   centre: {fileID: 1153376197668401097, guid: b457f2cd181fd4eee880157847eacd59, type: 3}
+  audioSource: {fileID: 3960493378232753762, guid: 3173929fcca0c4231b31251b66e89a9e, type: 3}
+  updateStep: 1
+  sampleDataLength: 0
+  clipLoudness: 0
+  planet: {fileID: 1231524468440787775}
+  sizeFactor: 0
+  minSize: 0
+  maxSize: 500
