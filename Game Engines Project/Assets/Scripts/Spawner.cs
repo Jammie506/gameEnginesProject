@@ -14,7 +14,7 @@ public class Spawner : MonoBehaviour
     //Variables used to establish a path for the entity to follow
     [Header("Waypoints")] 
     //number for waypoints that the entity can travel through
-    public float[] WaypointsList;
+    public GameObject[] WaypointsList;
     public GameObject waypointHolder;
     private float waypointX;
     private float waypointY;
@@ -45,7 +45,7 @@ public class Spawner : MonoBehaviour
             waypointZ = Random.Range((transform.position.z - gizmoZ/2), (transform.position.x + gizmoZ/2));
             
             //Create an instance of the Waypoint prefab at the randomised location
-            Instantiate(waypointHolder, new Vector3(waypointX, waypointY, waypointZ), Quaternion.identity);
+            WaypointsList[i] = Instantiate(waypointHolder, new Vector3(waypointX, waypointY, waypointZ), Quaternion.identity);
         }
     }
 }
