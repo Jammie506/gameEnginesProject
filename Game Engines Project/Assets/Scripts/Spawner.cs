@@ -92,7 +92,7 @@ public class Spawner : MonoBehaviour
                 //using local variables to keep code more concise
                 var position = Stalker.transform.position;
 
-                float orbit = (Random.Range(rotatorOrbitMin, rotatorsOrbitMax));
+                float orbit = Random.Range(rotatorOrbitMin, rotatorsOrbitMax);
 
                 OrbiterList[i] = GameObject.CreatePrimitive(PrimitiveType.Sphere);
                 OrbiterList[i].name = ("Orbiter " + i.ToString());
@@ -105,8 +105,6 @@ public class Spawner : MonoBehaviour
             created = true;
         }
         
-        //Making the Entity do stuff
-
         
         //Nested is loop means that the Entity will move between the randomised waypoints indefinitely within previously
         //defined bounds set by the user
@@ -116,6 +114,9 @@ public class Spawner : MonoBehaviour
             //Debug.Log(Stalker.transform.position);
             Stalker.transform.position = Vector3.MoveTowards(Stalker.transform.position,
                 WaypointsList[counter].transform.position, speed * Time.deltaTime);
+            
+            Stalker.transform.LookAt(WaypointsList[counter].transform.position);
+            
             if (Stalker.transform.position == WaypointsList[counter].transform.position && counter < (WaypointsList.Length-1))
             {
                 counter++;
@@ -132,9 +133,16 @@ public class Spawner : MonoBehaviour
             //using local variables to keep code more concise
             Vector3 StalkPos = Stalker.transform.position;
             Vector3 FolowPos = OrbiterList[counter2].transform.position;
-            
+            Vector3 dist = StalkPos - FolowPos;
+
+            if (dist.magnitude > stopDist)
+            {
+                OrbiterList[counter2].transform.position =
+                    Vector3.MoveTowards(FolowPos, StalkPos, speed * Time.deltaTime);
+            }
+
             FolowPos = StalkPos + (OrbiterList[counter2].transform.position - StalkPos).normalized * stopDist;
-            transform.RotateAround(StalkPos, Vector3.right, orbitSpeed * Time.deltaTime);
+            OrbiterList[counter2].transform.RotateAround(StalkPos, Vector3.back, orbitSpeed * Time.deltaTime);
         }
     }
 }
