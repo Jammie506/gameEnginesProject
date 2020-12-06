@@ -152,9 +152,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 883c26c0bac63425ca2a66ab9d6e757a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gizmoX: 10
-  gizmoY: 10
-  gizmoZ: 10
+  gizmoX: 100
+  gizmoY: 100
+  gizmoZ: 100
   WaypointsList:
   - {fileID: 0}
   - {fileID: 0}
@@ -163,10 +163,14 @@ MonoBehaviour:
   - {fileID: 0}
   waypointHolder: {fileID: 8779600812144778722, guid: 34aedac85ba82496e867ba4d2eb135ce, type: 3}
   speed: 5
-  stopDist: 1
-  rotatorsSizeMax: 0
-  rotatorSizeMin: 0
+  orbitSpeedMax: 0
+  stopDist: 3
+  rotatorsSizeMax: 1
+  rotatorSizeMin: 0.5
+  rotatorsOrbitMax: 2
+  rotatorOrbitMin: 5
   OrbiterList:
+  - {fileID: 0}
   - {fileID: 0}
 --- !u!4 &92013804
 Transform:

@@ -24,10 +24,13 @@ public class Spawner : MonoBehaviour
     private float waypointX; private float waypointY; private float waypointZ;
 
     [Header("Follower")]
-    [SerializeField] private float speed = 1;
-    [SerializeField] private float stopDist = 1;
+    [SerializeField] private float speed;
+    [SerializeField] private float orbitSpeed;
+    [SerializeField] private float stopDist;
     [SerializeField] private float rotatorsSizeMax;
     [SerializeField] private float rotatorSizeMin;
+    [SerializeField] private float rotatorsOrbitMax;
+    [SerializeField] private float rotatorOrbitMin;
     public GameObject[] OrbiterList;
     private GameObject Stalker;
     private bool created = false;
@@ -86,11 +89,15 @@ public class Spawner : MonoBehaviour
             
             for (int i = 0; i < OrbiterList.Length; i++)
             {
+                //using local variables to keep code more concise
                 var position = Stalker.transform.position;
+
+                float orbit = (Random.Range(rotatorOrbitMin, rotatorsOrbitMax));
 
                 OrbiterList[i] = GameObject.CreatePrimitive(PrimitiveType.Sphere);
                 OrbiterList[i].name = ("Orbiter " + i.ToString());
-                OrbiterList[i].transform.position = new Vector3(((position.x + 5)), ((position.y + 5)), ((position.z + 5)));
+                OrbiterList[i].transform.position = new Vector3(((position.x + orbit)), ((position.y + orbit)), 
+                    ((position.z + orbit)));
                 OrbiterList[i].gameObject.transform.localScale = new Vector3(Random.Range(rotatorSizeMin, rotatorsSizeMax),
                     Random.Range(rotatorSizeMin, rotatorsSizeMax),Random.Range(rotatorSizeMin, rotatorsSizeMax));
             }
@@ -119,11 +126,15 @@ public class Spawner : MonoBehaviour
             }
         }
 
-        Vector3 dist = OrbiterList[counter2].transform.position - Stalker.transform.position;
-        
-        if (dist.magnitude > stopDist)
+        //makes the orbiter objects follow at the distance defined in the "Stop Dist" assignment
+        for (counter2 = 0; counter2 < OrbiterList.Length; counter2++)
         {
+            //using local variables to keep code more concise
+            Vector3 StalkPos = Stalker.transform.position;
+            Vector3 FolowPos = OrbiterList[counter2].transform.position;
             
+            FolowPos = StalkPos + (OrbiterList[counter2].transform.position - StalkPos).normalized * stopDist;
+            transform.RotateAround(StalkPos, Vector3.right, orbitSpeed * Time.deltaTime);
         }
     }
 }
