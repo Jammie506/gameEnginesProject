@@ -26,9 +26,13 @@ public class Spawner : MonoBehaviour
     [Header("Follower")]
     [SerializeField] private float speed = 1;
     [SerializeField] private float stopDist = 1;
+    [SerializeField] private float rotatorsSizeMax;
+    [SerializeField] private float rotatorSizeMin;
+    public GameObject[] OrbiterList;
     private GameObject Stalker;
     private bool created = false;
     private int counter = 0;
+    private int counter2 = 0;
     
     
     void OnDrawGizmosSelected()
@@ -74,20 +78,35 @@ public class Spawner : MonoBehaviour
         if (!created)
         {
             GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+            sphere.gameObject.transform.localScale = new Vector3(2, 2,2);
             sphere.name = "Stalker";
             sphere.gameObject.tag = "Follower";
             
+            Stalker = GameObject.FindWithTag("Follower");
+            
+            for (int i = 0; i < OrbiterList.Length; i++)
+            {
+                var position = Stalker.transform.position;
+
+                OrbiterList[i] = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+                OrbiterList[i].name = ("Orbiter " + i.ToString());
+                OrbiterList[i].transform.position = new Vector3(((position.x + 5)), ((position.y + 5)), ((position.z + 5)));
+                OrbiterList[i].gameObject.transform.localScale = new Vector3(Random.Range(rotatorSizeMin, rotatorsSizeMax),
+                    Random.Range(rotatorSizeMin, rotatorsSizeMax),Random.Range(rotatorSizeMin, rotatorsSizeMax));
+            }
+
             created = true;
         }
         
         //Making the Entity do stuff
-        Stalker = GameObject.FindWithTag("Follower");
+
         
-        //Debug.Log(Stalker.transform.position);
-        
+        //Nested is loop means that the Entity will move between the randomised waypoints indefinitely within previously
+        //defined bounds set by the user
         if (counter < WaypointsList.Length && Stalker.transform.position != WaypointsList[counter].transform.position)
         {
-            Debug.Log(counter);
+            //Debug.Log(counter);
+            //Debug.Log(Stalker.transform.position);
             Stalker.transform.position = Vector3.MoveTowards(Stalker.transform.position,
                 WaypointsList[counter].transform.position, speed * Time.deltaTime);
             if (Stalker.transform.position == WaypointsList[counter].transform.position && counter < (WaypointsList.Length-1))
@@ -98,6 +117,13 @@ public class Spawner : MonoBehaviour
             {
                 counter = 0;
             }
+        }
+
+        Vector3 dist = OrbiterList[counter2].transform.position - Stalker.transform.position;
+        
+        if (dist.magnitude > stopDist)
+        {
+            
         }
     }
 }
