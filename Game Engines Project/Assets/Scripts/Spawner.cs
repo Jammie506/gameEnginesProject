@@ -97,7 +97,7 @@ public class Spawner : MonoBehaviour
                 float theta = (2 * Mathf.PI / OrbiterList.Length) * i;
                     
                     
-                OrbiterList[i].transform.position = new Vector3( (Mathf.Cos(theta)), Mathf.Sin(theta), (size + (size*i)));
+                OrbiterList[i].transform.position = new Vector3((Mathf.Cos(theta)), Mathf.Sin(theta), (size + (size*i)));
 
 
                 OrbiterList[i].gameObject.transform.localScale = new Vector3(
@@ -134,20 +134,37 @@ public class Spawner : MonoBehaviour
         //makes the orbiter objects follow at the distance defined in the "Stop Dist" assignment
         for (int a = 0; a < OrbiterList.Length; a++)
         {
-            //using local variables to keep code more concise
-            Vector3 StalkPos = Stalker.transform.position;
-            Vector3 FolowPos = OrbiterList[a].transform.position;
-            Vector3 dist = StalkPos - FolowPos;
+            if (a == 0)
+            {
+                Vector3 StalkPos = Stalker.transform.position;
+                Vector3 FolowPos = OrbiterList[a].transform.position;
+                Vector3 dist = StalkPos - FolowPos;
             
 
-            if (dist.magnitude > stopDist)
-            {
-                OrbiterList[a].transform.position =
-                    Vector3.MoveTowards(FolowPos, StalkPos, speed * Time.deltaTime);
+                if (dist.magnitude > stopDist)
+                {
+                    OrbiterList[a].transform.position =
+                        Vector3.MoveTowards(FolowPos, StalkPos, speed * Time.deltaTime);
+                }
+
+                FolowPos = StalkPos + (OrbiterList[a].transform.position - StalkPos).normalized * stopDist;   
             }
 
-            FolowPos = StalkPos + (OrbiterList[a].transform.position - StalkPos).normalized * stopDist;
-            //OrbiterList[a].transform.RotateAround(StalkPos, Vector3.back, orbitSpeed * Time.deltaTime);
+            if (a >= 1)
+            {
+                Vector3 StalkPos = OrbiterList[a-1].transform.position;
+                Vector3 FolowPos = OrbiterList[a].transform.position;
+                Vector3 dist = StalkPos - FolowPos;
+            
+
+                if (dist.magnitude > stopDist)
+                {
+                    OrbiterList[a].transform.position =
+                        Vector3.MoveTowards(FolowPos, StalkPos, speed * Time.deltaTime);
+                }
+
+                FolowPos = StalkPos + (OrbiterList[a].transform.position - StalkPos).normalized * stopDist;
+            }
         }
     }
 }

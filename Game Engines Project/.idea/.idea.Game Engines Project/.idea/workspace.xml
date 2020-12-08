@@ -26,8 +26,6 @@
       <change beforePath="$PROJECT_DIR$/Library/ProtocolInstance.json" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ProtocolInstance.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/Assembly-CSharp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ScriptAssemblies/Assembly-CSharp.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/SourceAssetDB" beforeDir="false" afterPath="$PROJECT_DIR$/Library/SourceAssetDB" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/StateCache/SceneView/03/03596ec13dcf852fc28590a10eefdefc.json" beforeDir="false" afterPath="$PROJECT_DIR$/Library/StateCache/SceneView/03/03596ec13dcf852fc28590a10eefdefc.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/__Backupscenes/0.backup" beforeDir="false" afterPath="$PROJECT_DIR$/Temp/__Backupscenes/0.backup" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +106,7 @@
       <workItem from="1607255725426" duration="11000" />
       <workItem from="1607255743759" duration="12666000" />
       <workItem from="1607430900786" duration="230000" />
-      <workItem from="1607431138492" duration="3365000" />
+      <workItem from="1607431138492" duration="4610000" />
     </task>
     <servers />
   </component>
