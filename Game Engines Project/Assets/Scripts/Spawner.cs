@@ -13,7 +13,6 @@ public class Spawner : MonoBehaviour
     //Variables used to set the size of the area in which the code will operate
     [Header("Spawn Area")] [SerializeField]
     private float gizmoX;
-
     [SerializeField] private float gizmoY;
     [SerializeField] private float gizmoZ;
 
@@ -26,7 +25,7 @@ public class Spawner : MonoBehaviour
 
     [Header("Follower")]
     [SerializeField] private float speed;
-    [SerializeField] private float orbitSpeed;
+    [SerializeField] private float size;
     [SerializeField] private float stopDist;
     [SerializeField] private float rotatorsSizeMax;
     [SerializeField] private float rotatorSizeMin;
@@ -36,7 +35,6 @@ public class Spawner : MonoBehaviour
     private GameObject Stalker;
     private bool created = false;
     private int counter = 0;
-    private int counter2 = 0;
     
     
     void OnDrawGizmosSelected()
@@ -82,7 +80,7 @@ public class Spawner : MonoBehaviour
         if (!created)
         {
             GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-            sphere.gameObject.transform.localScale = new Vector3(2, 2,2);
+            sphere.gameObject.transform.localScale = new Vector3(size, size,size);
             sphere.name = "Stalker";
             sphere.gameObject.tag = "Follower";
             
@@ -93,23 +91,21 @@ public class Spawner : MonoBehaviour
                 //using local variables to keep code more concise
                 var position = Stalker.transform.position;
                 
-                    OrbiterList[i] = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-                    OrbiterList[i].name = ("Orbiter " + i.ToString());
+                OrbiterList[i] = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+                OrbiterList[i].name = ("Orbiter " + i.ToString());
 
-                    float theta = (2 * Mathf.PI / OrbiterList.Length) * i;
+                float theta = (2 * Mathf.PI / OrbiterList.Length) * i;
                     
                     
-                    OrbiterList[i].transform.position = new Vector3( (Mathf.Cos(theta)), Mathf.Sin(theta), (i+2));
+                OrbiterList[i].transform.position = new Vector3( (Mathf.Cos(theta)), Mathf.Sin(theta), (size + (size*i)));
 
 
-                    OrbiterList[i].gameObject.transform.localScale = new Vector3(
-                        Random.Range(rotatorSizeMin, rotatorsSizeMax),
-                        Random.Range(rotatorSizeMin, rotatorsSizeMax),
-                        Random.Range(rotatorSizeMin, rotatorsSizeMax));
-                    
+                OrbiterList[i].gameObject.transform.localScale = new Vector3(
+                    Random.Range(rotatorSizeMin, rotatorsSizeMax),
+                    Random.Range(rotatorSizeMin, rotatorsSizeMax),
+                    Random.Range(rotatorSizeMin, rotatorsSizeMax));
             }
-
-
+            
             created = true;
         }
         
@@ -136,21 +132,22 @@ public class Spawner : MonoBehaviour
         }
 
         //makes the orbiter objects follow at the distance defined in the "Stop Dist" assignment
-        for (counter2 = 0; counter2 < OrbiterList.Length; counter2++)
+        for (int a = 0; a < OrbiterList.Length; a++)
         {
             //using local variables to keep code more concise
             Vector3 StalkPos = Stalker.transform.position;
-            Vector3 FolowPos = OrbiterList[counter2].transform.position;
+            Vector3 FolowPos = OrbiterList[a].transform.position;
             Vector3 dist = StalkPos - FolowPos;
+            
 
             if (dist.magnitude > stopDist)
             {
-                OrbiterList[counter2].transform.position =
+                OrbiterList[a].transform.position =
                     Vector3.MoveTowards(FolowPos, StalkPos, speed * Time.deltaTime);
             }
 
-            FolowPos = StalkPos + (OrbiterList[counter2].transform.position - StalkPos).normalized * stopDist;
-            //OrbiterList[counter2].transform.RotateAround(StalkPos, Vector3.back, orbitSpeed * Time.deltaTime);
+            FolowPos = StalkPos + (OrbiterList[a].transform.position - StalkPos).normalized * stopDist;
+            //OrbiterList[a].transform.RotateAround(StalkPos, Vector3.back, orbitSpeed * Time.deltaTime);
         }
     }
 }
