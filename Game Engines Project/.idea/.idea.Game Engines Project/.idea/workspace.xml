@@ -20,7 +20,46 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b7dc30d9-90a2-4963-9411-2657d2911960" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/ArtifactDB" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ArtifactDB" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/CurrentLayout-default.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/Library/CurrentLayout-default.dwlt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/EditorInstance.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/ProtocolInstance.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/SceneVisibilityState.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Library/SceneVisibilityState.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/SourceAssetDB" beforeDir="false" afterPath="$PROJECT_DIR$/Library/SourceAssetDB" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/StateCache/MainStageHierarchy/1f/1fca6511cc98d9fb55448e18e4186d42.json" beforeDir="false" afterPath="$PROJECT_DIR$/Library/StateCache/MainStageHierarchy/1f/1fca6511cc98d9fb55448e18e4186d42.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler1.log" beforeDir="false" afterPath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler1.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler2.log" beforeDir="false" afterPath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler2.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler3.log" beforeDir="false" afterPath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler3.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler4.log" beforeDir="false" afterPath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler4.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler5.log" beforeDir="false" afterPath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler5.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler6.log" beforeDir="false" afterPath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler6.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler7.log" beforeDir="false" afterPath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler7.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Temp/UnityLockfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-09c7b93638c8240ea9139194ac3992b5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-10a15e572af0e49609a646a36efebc38" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-17f05e1d66dce4295b02ac6931d64acd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-1af1fa2fddc90401a9e349dbf1ccbea1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-1c24950a282ea44d2ab2e4d991ed9195" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-3adc678c80626456cbd5c5f01c7e0062" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-3aebb2188569c4bbd9fea7b0f061051b" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-5206bc8ab9e4a4c6698b47e874f50d62" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-6001737ff077c40989b434d25d0a7a37" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-60939d4e16a894b31b4862703cfeb4d2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-60aefcc85399f47da85a831e6c001e94" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-6736a53df714d4976ab098e38f010230" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-7d417ef4aad4e497da2cd9cd07864b82" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-8b734107584aa4443a38175b34fe1712" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-8d36a8173169140748f6c84b7b09fea9" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-92de2cd1915f64c82a2983ee6b295b37" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-94888fc49e49b40af8665286d22ca154" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-9985a91aa978849118a065a8d6840825" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-a5a17833097bf4a708bb097740a0ba5f" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-bd1d63c899cc245bda9e79370f7d5d07" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-bd36f481ec68e44c0bca0e9bc946ad26" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-fc2338ac411ee4625a9af6aca564c82f" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-fe850f4114e154fd2880854cba67721a" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Temp/__Backupscenes/0.backup" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +140,7 @@
       <workItem from="1607255725426" duration="11000" />
       <workItem from="1607255743759" duration="12666000" />
       <workItem from="1607430900786" duration="230000" />
-      <workItem from="1607431138492" duration="6511000" />
+      <workItem from="1607431138492" duration="6624000" />
     </task>
     <servers />
   </component>

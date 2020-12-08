@@ -163,13 +163,16 @@ MonoBehaviour:
   - {fileID: 0}
   waypointHolder: {fileID: 8779600812144778722, guid: 34aedac85ba82496e867ba4d2eb135ce, type: 3}
   speed: 5
-  orbitSpeed: 100
+  size: 2
   stopDist: 5
   rotatorsSizeMax: 1
-  rotatorSizeMin: 0.5
-  rotatorsOrbitMax: 10
-  rotatorOrbitMin: 5
+  rotatorSizeMin: 1
+  rotatorsOrbitMax: 0
+  rotatorOrbitMin: 0
   OrbiterList:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
 --- !u!4 &92013804
 Transform:
