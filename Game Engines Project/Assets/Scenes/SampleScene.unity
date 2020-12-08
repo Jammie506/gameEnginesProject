@@ -171,7 +171,6 @@ MonoBehaviour:
   rotatorOrbitMin: 5
   OrbiterList:
   - {fileID: 0}
-  - {fileID: 0}
 --- !u!4 &92013804
 Transform:
   m_ObjectHideFlags: 0
