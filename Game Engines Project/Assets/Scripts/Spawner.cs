@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Xml;
 using UnityEditor;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -91,44 +92,23 @@ public class Spawner : MonoBehaviour
             {
                 //using local variables to keep code more concise
                 var position = Stalker.transform.position;
-
-                if (i == 0)
-                {
+                
                     OrbiterList[i] = GameObject.CreatePrimitive(PrimitiveType.Sphere);
                     OrbiterList[i].name = ("Orbiter " + i.ToString());
 
-
-                    OrbiterList[i].transform.position = new Vector3(
-                        ((position.x + 2)),
-                        ((position.y + 2)),
-                        ((position.z + 2)));
+                    float theta = (2 * Mathf.PI / OrbiterList.Length) * i;
+                    
+                    
+                    OrbiterList[i].transform.position = new Vector3( (Mathf.Cos(theta)), Mathf.Sin(theta), (i+2));
 
 
                     OrbiterList[i].gameObject.transform.localScale = new Vector3(
                         Random.Range(rotatorSizeMin, rotatorsSizeMax),
                         Random.Range(rotatorSizeMin, rotatorsSizeMax),
                         Random.Range(rotatorSizeMin, rotatorsSizeMax));
-                }
-
-                if (i >= 1)
-                {
-                    OrbiterList[i] = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-                    OrbiterList[i].name = ("Orbiter " + i.ToString());
-                
-                
-                    OrbiterList[i].transform.position = new Vector3(
-                        ((OrbiterList[i - 1].transform.position.x + 2)),
-                        ((OrbiterList[i - 1].transform.position.y + 2)),
-                        ((OrbiterList[i-1].transform.position.z + 2)));
-                
-                
-                    OrbiterList[i].gameObject.transform.localScale = new Vector3(
-                        Random.Range(rotatorSizeMin, rotatorsSizeMax), 
-                        Random.Range(rotatorSizeMin, rotatorsSizeMax),
-                        Random.Range(rotatorSizeMin, rotatorsSizeMax));
-                }
+                    
             }
-            
+
 
             created = true;
         }
