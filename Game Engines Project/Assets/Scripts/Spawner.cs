@@ -131,7 +131,9 @@ public class Spawner : MonoBehaviour
             }
         }
 
-        //makes the orbiter objects follow at the distance defined in the "Stop Dist" assignment
+        //makes the orbiter objects follow at the distance defined in the "Stop Dist" assignment, using two if statements
+        //because it allows the use of a mathematical formula to make sure that the code works no matter how many 
+        //orbiters there are
         for (int a = 0; a < OrbiterList.Length; a++)
         {
             if (a == 0)
@@ -147,7 +149,7 @@ public class Spawner : MonoBehaviour
                         Vector3.MoveTowards(FolowPos, StalkPos, speed * Time.deltaTime);
                 }
 
-                FolowPos = StalkPos + (OrbiterList[a].transform.position - StalkPos).normalized * stopDist;   
+                //FolowPos = StalkPos + (OrbiterList[a].transform.position - StalkPos).normalized * stopDist;   
             }
 
             if (a >= 1)
@@ -163,7 +165,7 @@ public class Spawner : MonoBehaviour
                         Vector3.MoveTowards(FolowPos, StalkPos, speed * Time.deltaTime);
                 }
 
-                FolowPos = StalkPos + (OrbiterList[a].transform.position - StalkPos).normalized * stopDist;
+                //FolowPos = StalkPos + (OrbiterList[a].transform.position - StalkPos).normalized * stopDist;
             }
         }
     }
