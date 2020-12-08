@@ -146,10 +146,8 @@ public class Spawner : MonoBehaviour
                 if (dist.magnitude > stopDist)
                 {
                     OrbiterList[a].transform.position =
-                        Vector3.MoveTowards(FolowPos, StalkPos, speed * Time.deltaTime);
+                        Vector3.Slerp(FolowPos, StalkPos, speed * Time.deltaTime);
                 }
-
-                //FolowPos = StalkPos + (OrbiterList[a].transform.position - StalkPos).normalized * stopDist;   
             }
 
             if (a >= 1)
@@ -162,10 +160,8 @@ public class Spawner : MonoBehaviour
                 if (dist.magnitude > stopDist)
                 {
                     OrbiterList[a].transform.position =
-                        Vector3.MoveTowards(FolowPos, StalkPos, speed * Time.deltaTime);
+                        Vector3.Slerp(FolowPos, StalkPos, speed * Time.deltaTime);
                 }
-
-                //FolowPos = StalkPos + (OrbiterList[a].transform.position - StalkPos).normalized * stopDist;
             }
         }
     }
