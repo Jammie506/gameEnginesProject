@@ -31,6 +31,7 @@ public class Spawner : MonoBehaviour
     [SerializeField] private float rotatorSizeMin;
     [SerializeField] private float rotatorsOrbitMax;
     [SerializeField] private float rotatorOrbitMin;
+    public GameObject[] FollowerList;
     public GameObject[] OrbiterList;
     private GameObject Stalker;
     private bool created = false;
@@ -86,25 +87,35 @@ public class Spawner : MonoBehaviour
             
             Stalker = GameObject.FindWithTag("Follower");
 
-            for (int i = 0; i < OrbiterList.Length; i++)
+            for (int a = 0; a < FollowerList.Length; a++)
             {
                 //using local variables to keep code more concise
                 var position = Stalker.transform.position;
                 
-                //OrbiterList[i] = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-                OrbiterList[i] = new GameObject();
-                OrbiterList[i].name = ("Orbiter " + i.ToString());
+                FollowerList[a] = new GameObject();
+                FollowerList[a].name = ("Follower " + a.ToString());
+            }
 
-                float theta = (2 * Mathf.PI / OrbiterList.Length) * i;
+            for (int b = 0; b < OrbiterList.Length; b++)
+            {
+                //using local variables to keep code more concise
+                var position = FollowerList[b].transform.position;
+                
+                OrbiterList[b] = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+                OrbiterList[b].name = ("Orbiter " + b.ToString());
+
+                float theta = (2 * Mathf.PI / OrbiterList.Length) * b;
                     
                     
-                OrbiterList[i].transform.position = new Vector3((Mathf.Cos(theta)), Mathf.Sin(theta), (size + (size*i)));
+                OrbiterList[b].transform.position = new Vector3((Mathf.Cos(theta)), Mathf.Sin(theta), (size + (size*b)));
 
 
-                OrbiterList[i].gameObject.transform.localScale = new Vector3(
+                OrbiterList[b].gameObject.transform.localScale = new Vector3(
                     Random.Range(rotatorSizeMin, rotatorsSizeMax),
                     Random.Range(rotatorSizeMin, rotatorsSizeMax),
                     Random.Range(rotatorSizeMin, rotatorsSizeMax));
+                
+                Debug.Log(b);
             }
             
             created = true;
@@ -135,36 +146,38 @@ public class Spawner : MonoBehaviour
         //makes the orbiter objects follow at the distance defined in the "Stop Dist" assignment, using two if statements
         //because it allows the use of a mathematical formula to make sure that the code works no matter how many 
         //orbiters there are
-        for (int a = 0; a < OrbiterList.Length; a++)
+        for (int c = 0; c < FollowerList.Length; c++)
         {
-            if (a == 0)
+            if (c == 0)
             {
                 Vector3 StalkPos = Stalker.transform.position;
-                Vector3 FolowPos = OrbiterList[a].transform.position;
+                Vector3 FolowPos = FollowerList[c].transform.position;
                 Vector3 dist = StalkPos - FolowPos;
             
 
                 if (dist.magnitude > stopDist)
                 {
-                    OrbiterList[a].transform.position =
+                    FollowerList[c].transform.position =
                         Vector3.Slerp(FolowPos, StalkPos, speed * Time.deltaTime);
                 }
             }
 
-            if (a >= 1)
+            if (c >= 1)
             {
-                Vector3 StalkPos = OrbiterList[a-1].transform.position;
-                Vector3 FolowPos = OrbiterList[a].transform.position;
+                Vector3 StalkPos = FollowerList[c-1].transform.position;
+                Vector3 FolowPos = FollowerList[c].transform.position;
                 Vector3 dist = StalkPos - FolowPos;
             
 
                 if (dist.magnitude > stopDist)
                 {
-                    OrbiterList[a].transform.position =
+                    FollowerList[c].transform.position =
                         Vector3.Slerp(FolowPos, StalkPos, speed * Time.deltaTime);
                 }
             }
         }
+        
+        for()
     }
 }
 
