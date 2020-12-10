@@ -29,13 +29,22 @@ public class Spawner : MonoBehaviour
     [SerializeField] private float stopDist;
     [SerializeField] private float rotatorsSizeMax;
     [SerializeField] private float rotatorSizeMin;
-    [SerializeField] private float rotatorsOrbitMax;
-    [SerializeField] private float rotatorOrbitMin;
     public GameObject[] FollowerList;
     public GameObject[] OrbiterList;
     private GameObject Stalker;
     private bool created = false;
     private int counter = 0;
+
+    [Header("Terrain Gen")]
+    [SerializeField] private float perlinMultiplier;
+    [SerializeField] private float perlinRefinemnt;
+    [SerializeField] private int perlinRowsAndColumns;
+    [SerializeField] private float perlinNoise;
+    public float[,] terrainHights;
+    
+    
+    
+    
     
     
     void OnDrawGizmosSelected()
@@ -49,12 +58,13 @@ public class Spawner : MonoBehaviour
     {
         //Calling CoRoutines
         WaypointSpawn();
+        TerrainGen();
     }
 
     private void Update()
     {
         //Calling CoRoutines
-        Follower();
+        //Follower();
     }
 
     void WaypointSpawn()
@@ -169,6 +179,8 @@ public class Spawner : MonoBehaviour
             }
         }
 
+        
+        //Used to make the cubes rotate around the axis set under RotatePos variable, using the speed variable
         for(int d = 0; d < OrbiterList.Length; d++)
         {
                 Vector3 RotatePos = FollowerList[d].transform.position;
@@ -183,6 +195,27 @@ public class Spawner : MonoBehaviour
                 
                 OrbiterList[d].transform.Rotate(RotatePos, Space.Self);
         }
+    }
+
+    void TerrainGen()
+    {
+        GameObject TerrainObj = new GameObject("TerrainObj");
+ 
+        TerrainData _TerrainData = new TerrainData();
+ 
+        _TerrainData.size = new Vector3(10, 600, 10);
+        _TerrainData.heightmapResolution = 512;
+        _TerrainData.baseMapResolution = 1024;
+        _TerrainData.SetDetailResolution(1024, 16);
+ 
+        int _heightmapWidth = _TerrainData.heightmapResolution;
+        int _heightmapHeight = _TerrainData.heightmapResolution;
+ 
+        TerrainCollider _TerrainCollider = TerrainObj.AddComponent<TerrainCollider>();
+        Terrain _Terrain2 = TerrainObj.AddComponent<Terrain>();
+ 
+        _TerrainCollider.terrainData = _TerrainData;
+        _Terrain2.terrainData = _TerrainData;
     }
 }
 
