@@ -91,7 +91,8 @@ public class Spawner : MonoBehaviour
                 //using local variables to keep code more concise
                 var position = Stalker.transform.position;
                 
-                OrbiterList[i] = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+                //OrbiterList[i] = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+                OrbiterList[i] = new GameObject();
                 OrbiterList[i].name = ("Orbiter " + i.ToString());
 
                 float theta = (2 * Mathf.PI / OrbiterList.Length) * i;
