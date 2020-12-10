@@ -89,18 +89,12 @@ public class Spawner : MonoBehaviour
 
             for (int a = 0; a < FollowerList.Length; a++)
             {
-                //using local variables to keep code more concise
-                var position = Stalker.transform.position;
-                
                 FollowerList[a] = new GameObject();
                 FollowerList[a].name = ("Follower " + a.ToString());
             }
 
             for (int b = 0; b < OrbiterList.Length; b++)
             {
-                //using local variables to keep code more concise
-                var position = FollowerList[b].transform.position;
-                
                 OrbiterList[b] = GameObject.CreatePrimitive(PrimitiveType.Sphere);
                 OrbiterList[b].name = ("Orbiter " + b.ToString());
 
@@ -114,8 +108,6 @@ public class Spawner : MonoBehaviour
                     Random.Range(rotatorSizeMin, rotatorsSizeMax),
                     Random.Range(rotatorSizeMin, rotatorsSizeMax),
                     Random.Range(rotatorSizeMin, rotatorsSizeMax));
-                
-                Debug.Log(b);
             }
             
             created = true;
@@ -176,8 +168,21 @@ public class Spawner : MonoBehaviour
                 }
             }
         }
-        
-        for()
+
+        for(int d = 0; d < OrbiterList.Length; d++)
+        {
+                Vector3 RotatePos = FollowerList[d].transform.position;
+                Vector3 FollowerPos = OrbiterList[d].transform.position;
+                Vector3 dist = RotatePos - FollowerPos;
+
+                if (dist.magnitude > stopDist)
+                {
+                    OrbiterList[d].transform.position =
+                        Vector3.MoveTowards(FollowerPos, RotatePos, speed * Time.deltaTime);
+                }
+                
+                OrbiterList[d].transform.RotateAround(RotatePos, Vector3.back,  speed*Time.deltaTime);
+        }
     }
 }
 
