@@ -95,7 +95,7 @@ public class Spawner : MonoBehaviour
 
             for (int b = 0; b < OrbiterList.Length; b++)
             {
-                OrbiterList[b] = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+                OrbiterList[b] = GameObject.CreatePrimitive(PrimitiveType.Cube);
                 OrbiterList[b].name = ("Orbiter " + b.ToString());
 
                 float theta = (2 * Mathf.PI / OrbiterList.Length) * b;
@@ -178,10 +178,10 @@ public class Spawner : MonoBehaviour
                 if (dist.magnitude > stopDist)
                 {
                     OrbiterList[d].transform.position =
-                        Vector3.MoveTowards(FollowerPos, RotatePos, speed * Time.deltaTime);
+                        Vector3.Slerp(FollowerPos, RotatePos, speed * Time.deltaTime);
                 }
                 
-                OrbiterList[d].transform.RotateAround(RotatePos, Vector3.back,  speed*Time.deltaTime);
+                OrbiterList[d].transform.Rotate(RotatePos, Space.Self);
         }
     }
 }
