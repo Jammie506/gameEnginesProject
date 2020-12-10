@@ -41,6 +41,7 @@ public class Spawner : MonoBehaviour
     [SerializeField] private int perlinRowsAndColumns;
     [SerializeField] private float perlinNoise;
     public float[,] terrainHights;
+    public Material terrainMaterial;
     
     
     
@@ -200,7 +201,10 @@ public class Spawner : MonoBehaviour
     void TerrainGen()
     {
         GameObject TerrainObj = new GameObject("TerrainObj");
- 
+        
+        //TerrainObj.gameObject.AddComponent<MeshRenderer>();
+        //TerrainObj.GetComponent<MeshRenderer> ().material = terrainMaterial;
+        
         TerrainData _TerrainData = new TerrainData();
  
         _TerrainData.size = new Vector3(10, 600, 10);

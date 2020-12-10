@@ -167,13 +167,21 @@ MonoBehaviour:
   stopDist: 5
   rotatorsSizeMax: 1
   rotatorSizeMin: 1
-  rotatorsOrbitMax: 0
-  rotatorOrbitMin: 0
+  FollowerList:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   OrbiterList:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  perlinMultiplier: 0
+  perlinRefinemnt: 0
+  perlinRowsAndColumns: 0
+  perlinNoise: 0
+  terrainMaterial: {fileID: 2100000, guid: c2a9167b8a5524e9f94adc6db9d56d05, type: 2}
 --- !u!4 &92013804
 Transform:
   m_ObjectHideFlags: 0
