@@ -43,14 +43,11 @@ public class Spawner : MonoBehaviour
     private GameObject Stalker;
     private bool created = false;
     private int counter = 0;
-
-
-
-
+    
 
     void OnDrawGizmosSelected()
     {
-        // Draw a yellow cube at the transform position
+        // Draw a yellow cube at the transform position to show size
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireCube(transform.position, new Vector3(gizmoX, gizmoY, gizmoZ));
     }
@@ -65,7 +62,7 @@ public class Spawner : MonoBehaviour
     private void Update()
     {
         //Calling CoRoutines
-        //Follower();
+        Follower();
     }
 
     void WaypointSpawn()
@@ -80,7 +77,7 @@ public class Spawner : MonoBehaviour
             waypointZ = Random.Range((transform.position.z - gizmoZ / 2), (transform.position.x + gizmoZ / 2));
 
             //Create an instance of the Waypoint prefab at the randomised location, and adds it to the Array
-            WaypointsList[i] = Instantiate(waypointHolder, new Vector3(waypointX, waypointY, waypointZ),
+            WaypointsList[i] =Instantiate(waypointHolder, new Vector3(waypointX, waypointY, waypointZ),
                 Quaternion.identity);
         }
     }
@@ -131,7 +128,7 @@ public class Spawner : MonoBehaviour
         {
             //Debug.Log(counter);
             //Debug.Log(Stalker.transform.position);
-            Stalker.transform.position = Vector3.MoveTowards(Stalker.transform.position,
+            Stalker.transform.position = Vector3.Slerp(Stalker.transform.position,
                 WaypointsList[counter].transform.position, speed * Time.deltaTime);
             
             Stalker.transform.LookAt(WaypointsList[counter].transform.position);
