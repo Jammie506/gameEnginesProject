@@ -22,7 +22,7 @@ public class Spawner : MonoBehaviour
     [SerializeField] private int perlinRowsAndColumns;
     [SerializeField] private float perlinNoise;
     [SerializeField] private float[,] terrainHights;
-    [SerializeField] private GameObject terrain;
+    GameObject terrain;
 
 
     //Variables used to establish a path for the entity to follow
@@ -197,7 +197,19 @@ public class Spawner : MonoBehaviour
 
     void TerrainGen()
     {
+        terrainHights = new float[perlinRowsAndColumns, perlinRowsAndColumns];
+        terrain = terrain.GetComponent<Terrain>();
+
+        for(int e = 0; e < perlinRowsAndColumns; e++)
+        {
+            for(int f = 0; f < perlinRowsAndColumns; f++)
+            {
+                perlinNoise = Mathf.PerlinNoise(e * perlinRefinemnt, f * perlinRefinemnt);
+                terrainHights[e, f] = perlinNoise * perlinMultiplier;
+            }
+        }
         
+        terrain.terrainData.SetHeights(0, 0, terrainHights);
     }
 }
 

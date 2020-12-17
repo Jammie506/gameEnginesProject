@@ -155,11 +155,11 @@ MonoBehaviour:
   gizmoX: 1000
   gizmoY: 500
   gizmoZ: 1000
-  perlinMultiplier: 0
-  perlinRefinemnt: 0
-  perlinRowsAndColumns: 0
-  perlinNoise: 0
-  terrain: {fileID: 1312055040}
+  perlinMultiplier: 0.01
+  perlinRefinemnt: 0.01
+  perlinRowsAndColumns: 1000
+  perlinNoise: 3.14
+  terrain: {fileID: 1312055042}
   WaypointsList:
   - {fileID: 0}
   - {fileID: 0}
@@ -168,10 +168,10 @@ MonoBehaviour:
   - {fileID: 0}
   waypointHolder: {fileID: 8779600812144778722, guid: 34aedac85ba82496e867ba4d2eb135ce, type: 3}
   speed: 1
-  size: 2
+  size: 10
   stopDist: 5
-  rotatorsSizeMax: 1
-  rotatorSizeMin: 1
+  rotatorsSizeMax: 5
+  rotatorSizeMin: 3
   FollowerList:
   - {fileID: 0}
   - {fileID: 0}
@@ -432,9 +432,9 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!1 &1312055040 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1031172104347137407, guid: b71372b1c08444bfdbe2336b5e3395a0, type: 3}
+--- !u!218 &1312055042 stripped
+Terrain:
+  m_CorrespondingSourceObject: {fileID: 3623353107946679183, guid: b71372b1c08444bfdbe2336b5e3395a0, type: 3}
   m_PrefabInstance: {fileID: 7432734976065911779}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7432734976065911779
