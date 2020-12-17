@@ -11,10 +11,19 @@ using Random = UnityEngine.Random;
 public class Spawner : MonoBehaviour
 {
     //Variables used to set the size of the area in which the code will operate
-    [Header("Spawn Area")] [SerializeField]
-    private float gizmoX;
+    [Header("Spawn Area")]
+    [SerializeField] private float gizmoX;
     [SerializeField] private float gizmoY;
     [SerializeField] private float gizmoZ;
+    
+    [Header("Terrain Gen")]
+    [SerializeField] private float perlinMultiplier;
+    [SerializeField] private float perlinRefinemnt;
+    [SerializeField] private int perlinRowsAndColumns;
+    [SerializeField] private float perlinNoise;
+    [SerializeField] private float[,] terrainHights;
+    [SerializeField] private GameObject terrain;
+
 
     //Variables used to establish a path for the entity to follow
     [Header("Waypoints")]
@@ -35,19 +44,10 @@ public class Spawner : MonoBehaviour
     private bool created = false;
     private int counter = 0;
 
-    [Header("Terrain Gen")]
-    [SerializeField] private float perlinMultiplier;
-    [SerializeField] private float perlinRefinemnt;
-    [SerializeField] private int perlinRowsAndColumns;
-    [SerializeField] private float perlinNoise;
-    public float[,] terrainHights;
-    public Material terrainMaterial;
-    
-    
-    
-    
-    
-    
+
+
+
+
     void OnDrawGizmosSelected()
     {
         // Draw a yellow cube at the transform position
@@ -200,26 +200,7 @@ public class Spawner : MonoBehaviour
 
     void TerrainGen()
     {
-        GameObject TerrainObj = new GameObject("TerrainObj");
         
-        //TerrainObj.gameObject.AddComponent<MeshRenderer>();
-        //TerrainObj.GetComponent<MeshRenderer> ().material = terrainMaterial;
-        
-        TerrainData _TerrainData = new TerrainData();
- 
-        _TerrainData.size = new Vector3(10, 600, 10);
-        _TerrainData.heightmapResolution = 512;
-        _TerrainData.baseMapResolution = 1024;
-        _TerrainData.SetDetailResolution(1024, 16);
- 
-        int _heightmapWidth = _TerrainData.heightmapResolution;
-        int _heightmapHeight = _TerrainData.heightmapResolution;
- 
-        TerrainCollider _TerrainCollider = TerrainObj.AddComponent<TerrainCollider>();
-        Terrain _Terrain2 = TerrainObj.AddComponent<Terrain>();
- 
-        _TerrainCollider.terrainData = _TerrainData;
-        _Terrain2.terrainData = _TerrainData;
     }
 }
 
