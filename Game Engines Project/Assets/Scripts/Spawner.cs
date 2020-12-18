@@ -212,4 +212,3 @@ public class Spawner : MonoBehaviour
         terrain.terrainData.SetHeights(0, 0, terrainHights);
     }
 }
-
