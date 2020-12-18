@@ -20,8 +20,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b7dc30d9-90a2-4963-9411-2657d2911960" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Game Engines Project/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Game Engines Project/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Game Engines Project/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Game Engines Project/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/TerrainMaterial.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/TerrainMaterial.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/New Terrain.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/New Terrain.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Spawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Spawner.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/ArtifactDB" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ArtifactDB" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/ProtocolInstance.json" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ProtocolInstance.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/SceneVisibilityState.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Library/SceneVisibilityState.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/SourceAssetDB" beforeDir="false" afterPath="$PROJECT_DIR$/Library/SourceAssetDB" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/StateCache/MainStageHierarchy/1f/1fca6511cc98d9fb55448e18e4186d42.json" beforeDir="false" afterPath="$PROJECT_DIR$/Library/StateCache/MainStageHierarchy/1f/1fca6511cc98d9fb55448e18e4186d42.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/StateCache/SceneView/03/03596ec13dcf852fc28590a10eefdefc.json" beforeDir="false" afterPath="$PROJECT_DIR$/Library/StateCache/SceneView/03/03596ec13dcf852fc28590a10eefdefc.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,8 +44,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Patrolling.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Speheres.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/perlinNoise.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -42,6 +53,7 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/HemiSphere.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Speheres.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Patrolling.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/perlinNoise.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Spawner.cs" />
       </list>
     </option>
@@ -107,7 +119,7 @@
       <workItem from="1607602581989" duration="6195000" />
       <workItem from="1608213353098" duration="2000" />
       <workItem from="1608213361198" duration="3066000" />
-      <workItem from="1608293655266" duration="177000" />
+      <workItem from="1608293655266" duration="1138000" />
     </task>
     <servers />
   </component>

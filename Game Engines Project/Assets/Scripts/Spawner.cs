@@ -16,13 +16,13 @@ public class Spawner : MonoBehaviour
     [SerializeField] private float gizmoY;
     [SerializeField] private float gizmoZ;
     
-    [Header("Terrain Gen")]
+    /*[Header("Terrain Gen")]
     [SerializeField] private float perlinMultiplier;
     [SerializeField] private float perlinRefinemnt;
     [SerializeField] private int perlinRowsAndColumns;
     [SerializeField] private float perlinNoise;
     [SerializeField] private float[,] terrainHights;
-    GameObject terrain;
+    GameObject terrain;*/
 
 
     //Variables used to establish a path for the entity to follow
@@ -56,7 +56,7 @@ public class Spawner : MonoBehaviour
     {
         //Calling CoRoutines
         WaypointSpawn();
-        TerrainGen();
+        //TerrainGen();
     }
 
     private void Update()
@@ -128,7 +128,7 @@ public class Spawner : MonoBehaviour
         {
             //Debug.Log(counter);
             //Debug.Log(Stalker.transform.position);
-            Stalker.transform.position = Vector3.Slerp(Stalker.transform.position,
+            Stalker.transform.position = Vector3.MoveTowards(Stalker.transform.position,
                 WaypointsList[counter].transform.position, speed * Time.deltaTime);
             
             Stalker.transform.LookAt(WaypointsList[counter].transform.position);
@@ -195,7 +195,7 @@ public class Spawner : MonoBehaviour
         }
     }
 
-    void TerrainGen()
+    /*(void TerrainGen()
     {
         terrainHights = new float[perlinRowsAndColumns, perlinRowsAndColumns];
         terrain = terrain.GetComponent<Terrain>();
@@ -210,5 +210,5 @@ public class Spawner : MonoBehaviour
         }
         
         terrain.terrainData.SetHeights(0, 0, terrainHights);
-    }
+    }*/
 }
