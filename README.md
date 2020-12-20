@@ -20,6 +20,11 @@ variable, as shown in the Demo video included below. This allowes for any users 
 appearance esialy and quickly, while the use of private variable can prevent any overlap with their pre 
 existing code in the project.
 
+I am most proud of the fact that the "Stalker" entity and all code realted to it and the spowning if its 
+orbiters throug harrays being created from a singular scrpt using only on prefab overall, as this is somehting 
+I do not usually manage to pull off in my projets, as I often rely on numerous scripts with shared vaiables to 
+accomplish complex tasks such as this.
+
 My main inspiration for this idea is some of the creatures in Infinite Forms, however I would like to
 create something that is not too similar to them, and not too disimilar either, in fitting with the
 brief
