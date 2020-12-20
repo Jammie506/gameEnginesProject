@@ -10,28 +10,24 @@ using Random = UnityEngine.Random;
 
 public class Spawner : MonoBehaviour
 {
-    //Variables used to set the size of the area in which the code will operate
+    //Using [SerialisedField] and private variables to avoid any overlap with any other code that may already exist
+    //in the project 
+    
+    //Variables used to set the size of the area in which the code will operate for the moving entity, represented in
+    //the editor by a yellow square
     [Header("Spawn Area")]
     [SerializeField] private float gizmoX;
     [SerializeField] private float gizmoY;
     [SerializeField] private float gizmoZ;
     
-    /*[Header("Terrain Gen")]
-    [SerializeField] private float perlinMultiplier;
-    [SerializeField] private float perlinRefinemnt;
-    [SerializeField] private int perlinRowsAndColumns;
-    [SerializeField] private float perlinNoise;
-    [SerializeField] private float[,] terrainHights;
-    GameObject terrain;*/
-
-
     //Variables used to establish a path for the entity to follow
     [Header("Waypoints")]
-    //number for waypoints that the entity can travel through
+    //number for waypoints that the entity can travel through, all to be stored in an array for easy referencing
     public GameObject[] WaypointsList;
     public GameObject waypointHolder;
     private float waypointX; private float waypointY; private float waypointZ;
 
+    //Variables that control the creation of the waypoint follower and its followers
     [Header("Follower")]
     [SerializeField] private float speed;
     [SerializeField] private float size;
@@ -54,14 +50,13 @@ public class Spawner : MonoBehaviour
 
     void Start()
     {
-        //Calling CoRoutines
+        //Calling CoRoutines, these happen once on play
         WaypointSpawn();
-        //TerrainGen();
     }
 
     private void Update()
     {
-        //Calling CoRoutines
+        //Calling CoRoutines, these happen at the start of every frame, thus can depend on the machine
         Follower();
     }
 
@@ -85,9 +80,12 @@ public class Spawner : MonoBehaviour
     //Creating a base for the Entity that will patrol the above points
     void Follower()
     {
-        //Ensuring that only one is spawned as the rest of the CoRoutine functions within the Update Function
+        //Ensuring that only one is spawned as the rest of the CoRoutine functions within the Update Function,
+        //essentially creating a fake "Start" loop to run un the Update method
         if (!created)
         {
+            //Using primitives as they dont require a prefab or already existing object to be spawned, and do not
+            //created unwanted clone objects in the Hierarchy 
             GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
             sphere.gameObject.transform.localScale = new Vector3(size, size,size);
             sphere.name = "Stalker";
@@ -95,12 +93,16 @@ public class Spawner : MonoBehaviour
             
             Stalker = GameObject.FindWithTag("Follower");
 
+            //Note: Using unconventional naming system for ints in for loops (a, b, c etc) in an attempt to prevent
+            //confusion and allow for easier debugging by user and developer
             for (int a = 0; a < FollowerList.Length; a++)
             {
                 FollowerList[a] = new GameObject();
                 FollowerList[a].name = ("Follower " + a.ToString());
             }
 
+            //attempting to have the orbiters spawn in a spiral behind the main follower, however as they begin to move
+            //they lose their shape
             for (int b = 0; b < OrbiterList.Length; b++)
             {
                 OrbiterList[b] = GameObject.CreatePrimitive(PrimitiveType.Cube);
@@ -194,21 +196,4 @@ public class Spawner : MonoBehaviour
                 OrbiterList[d].transform.Rotate(RotatePos, Space.Self);
         }
     }
-
-    /*(void TerrainGen()
-    {
-        terrainHights = new float[perlinRowsAndColumns, perlinRowsAndColumns];
-        terrain = terrain.GetComponent<Terrain>();
-
-        for(int e = 0; e < perlinRowsAndColumns; e++)
-        {
-            for(int f = 0; f < perlinRowsAndColumns; f++)
-            {
-                perlinNoise = Mathf.PerlinNoise(e * perlinRefinemnt, f * perlinRefinemnt);
-                terrainHights[e, f] = perlinNoise * perlinMultiplier;
-            }
-        }
-        
-        terrain.terrainData.SetHeights(0, 0, terrainHights);
-    }*/
 }
